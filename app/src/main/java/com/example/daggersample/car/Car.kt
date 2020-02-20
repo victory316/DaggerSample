@@ -1,4 +1,4 @@
-package com.example.daggersample
+package com.example.daggersample.car
 
 import android.util.Log
 import javax.inject.Inject
@@ -11,13 +11,12 @@ import javax.inject.Inject
  *
  */
 class Car {
-    @Inject
-    lateinit var engine: Engine
-
-    var wheels: Wheels
+    private var engine: Engine
+    private var wheels: Wheels
 
     @Inject
-    constructor(wheels: Wheels) {
+    constructor(engine: Engine, wheels: Wheels) {
+        this.engine = engine
         this.wheels = wheels
     }
 
@@ -27,6 +26,7 @@ class Car {
     }
 
     fun drive() {
+        engine.start()
         Log.d("daggerTest", "Let's driveee")
         // Vroom
     }

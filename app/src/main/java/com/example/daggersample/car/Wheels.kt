@@ -1,11 +1,13 @@
-package com.example.daggersample
+package com.example.daggersample.car
 
+import com.example.daggersample.car.Rims
+import com.example.daggersample.car.Tires
 import javax.inject.Inject
 
 class Wheels {
 
-    lateinit var rims: Rims
-    lateinit var tires: Tires
+    var rims: Rims
+    var tires: Tires
 
     @Inject
     constructor(rims: Rims, tires: Tires) {

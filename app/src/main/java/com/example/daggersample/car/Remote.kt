@@ -1,6 +1,7 @@
-package com.example.daggersample
+package com.example.daggersample.car
 
 import android.util.Log
+import com.example.daggersample.car.Car
 import javax.inject.Inject
 
 class Remote {
@@ -9,6 +10,6 @@ class Remote {
     constructor()
 
     fun setListener(car: Car) {
-        Log.d("DaggerTest", "Remote connected.")
+        Log.d("daggerTest", "Remote connected.")
     }
 }
