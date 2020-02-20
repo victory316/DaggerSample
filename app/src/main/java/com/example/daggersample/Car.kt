@@ -11,13 +11,19 @@ import javax.inject.Inject
  *
  */
 class Car {
-    var engine: Engine
+    @Inject
+    lateinit var engine: Engine
+
     var wheels: Wheels
 
     @Inject
-    constructor(engine: Engine, wheels: Wheels) {
-        this.engine = engine
+    constructor(wheels: Wheels) {
         this.wheels = wheels
+    }
+
+    @Inject
+    fun enableRemote(remote: Remote) {
+        remote.setListener(this)
     }
 
     fun drive() {
