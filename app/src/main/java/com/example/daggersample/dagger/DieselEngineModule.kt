@@ -2,8 +2,6 @@ package com.example.daggersample.dagger
 
 import com.example.daggersample.car.DieselEngine
 import com.example.daggersample.car.Engine
-import com.example.daggersample.dagger.PetrolEngine
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 
@@ -17,7 +15,12 @@ class DieselEngineModule {
     }
 
     @Provides
-    fun provideEngine(): Engine {
-        return DieselEngine(horsePower)
+    fun provideEngine(engine: DieselEngine): Engine {
+        return engine
+    }
+
+    @Provides
+    fun provideHorsePower(): Int {
+        return horsePower
     }
 }
