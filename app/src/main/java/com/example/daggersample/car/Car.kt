@@ -11,11 +11,14 @@ import javax.inject.Inject
  *
  */
 class Car {
+
+    private var driver: Driver
     private var engine: Engine
     private var wheels: Wheels
 
     @Inject
-    constructor(engine: Engine, wheels: Wheels) {
+    constructor(driver: Driver, engine: Engine, wheels: Wheels) {
+        this.driver = driver
         this.engine = engine
         this.wheels = wheels
     }
@@ -27,7 +30,7 @@ class Car {
 
     fun drive() {
         engine.start()
-        Log.d("daggerTest", "Let's driveee")
+        Log.d("daggerTest", "$driver drives $this")
         // Vroom
     }
 }
