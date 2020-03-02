@@ -1,6 +1,7 @@
 package com.example.daggersample.car
 
 import android.util.Log
+import com.example.daggersample.dagger.PerActivity
 import javax.inject.Inject
 
 /**
@@ -10,6 +11,8 @@ import javax.inject.Inject
  *  이후 코틀린 스타일로 변환하며 차이점을 눈여겨볼 예정
  *
  */
+
+@PerActivity
 class Car {
 
     private var driver: Driver
