@@ -4,16 +4,18 @@ import com.example.daggersample.MainActivity
 import com.example.daggersample.car.Car
 import dagger.BindsInstance
 import dagger.Component
+import dagger.Subcomponent
 import javax.inject.Named
 
 @PerActivity
-@Component (dependencies = [AppComponent::class], modules = [PetrolEngineModule::class, WheelsModule::class])
+@Subcomponent(modules = [DieselEngineModule::class, WheelsModule::class])
 interface ActivityComponent {
 
     fun getCar(): Car
 
     fun inject(mainActivity: MainActivity)
 
+    /*
     @Component.Builder
     interface Builder {
 
@@ -27,4 +29,6 @@ interface ActivityComponent {
 
         fun build(): ActivityComponent
     }
+    */
+
 }

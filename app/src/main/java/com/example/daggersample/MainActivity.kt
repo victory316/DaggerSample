@@ -3,7 +3,8 @@ package com.example.daggersample
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.daggersample.car.Car
-import com.example.daggersample.dagger.DaggerActivityComponent
+//import com.example.daggersample.dagger.DaggerActivityComponent
+import com.example.daggersample.dagger.DieselEngineModule
 import dagger.android.DaggerActivity
 import javax.inject.Inject
 
@@ -16,11 +17,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //Singleton 적용 예.
-        val component = DaggerActivityComponent.builder()
-            .horsePower(120)
-            .engineCapacity(1400)
-            .appComponent((application as ExampleApp).getAppComponent())
-            .build()
+        val component = (application as ExampleApp).getAppComponent()
+            .getActivityComponent(DieselEngineModule(120))
 
         component.inject(this)
 
