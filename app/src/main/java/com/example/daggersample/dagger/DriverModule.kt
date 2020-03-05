@@ -7,10 +7,15 @@ import javax.inject.Singleton
 
 @Module
 class DriverModule {
+    private lateinit var driverName: String
+
+    constructor(driverName: String) {
+        this.driverName = driverName
+    }
 
     @Provides
     @Singleton
     fun provideDriver(): Driver {
-        return Driver()
+        return Driver(driverName)
     }
 }

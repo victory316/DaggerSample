@@ -3,6 +3,9 @@ package com.example.daggersample
 import android.app.Application
 import com.example.daggersample.dagger.ActivityComponent
 import com.example.daggersample.dagger.AppComponent
+import com.example.daggersample.dagger.DaggerAppComponent
+import com.example.daggersample.dagger.DriverModule
+
 //import com.example.daggersample.dagger.DaggerActivityComponent
 
 class ExampleApp : Application() {
@@ -10,7 +13,7 @@ class ExampleApp : Application() {
 
     override fun onCreate() {
 
-//        component = DaggerAppC.create()
+        component = DaggerAppComponent.factory().create(DriverModule("Hans"))
 
         super.onCreate()
     }

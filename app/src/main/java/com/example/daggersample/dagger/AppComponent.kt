@@ -11,5 +11,11 @@ interface AppComponent {
 
 //    fun getDriver(): Driver
 
-    fun getActivityComponent(dieselEngineModule: DieselEngineModule): ActivityComponent
+    fun getActivityComponentFactory(): ActivityComponent.Factory
+
+    // Dagger에서 factory 클래스를 알아서 생성함.
+    @Component.Factory
+    interface Factory {
+        fun create(driverModule: DriverModule): AppComponent
+    }
 }
